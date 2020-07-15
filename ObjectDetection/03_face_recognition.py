@@ -1,3 +1,12 @@
+''''
+Real Time Face Recogition
+	==> Each face stored on dataset/ dir, should have a unique numeric integer ID as 1, 2, 3, etc                       
+	==> LBPH computed model (trained faces) should be on trainer/ dir
+Based on original code by Anirban Kar: https://github.com/thecodacus/Face-Recognition    
+
+Developed by Marcelo Rovai - MJRoBot.org @ 21Feb18  
+
+'''
 
 import cv2
 import numpy as np
@@ -14,7 +23,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 id = 0
 
 # names related to ids: example ==> Marcelo: id=1,  etc
-names = ['None', 'Ashish', 'Mishu', 'Kristy', 'Z', 'W','Ashish'] 
+names = ['None', 'Ashish', 'Aditya', 'Mummy', 'Papa', 'W'] 
 
 # Initialize and start realtime video capture
 cam = cv2.VideoCapture(0)
@@ -44,10 +53,9 @@ while True:
         cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0), 2)
 
         id, confidence = recognizer.predict(gray[y:y+h,x:x+w])
-        print("ID:", id)
 
         # Check if confidence is less them 100 ==> "0" is perfect match 
-        if (confidence < 100):
+        if (confidence < 80):
             id = names[id]
             confidence = "  {0}%".format(round(100 - confidence))
         else:

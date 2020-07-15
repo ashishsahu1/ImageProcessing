@@ -1,3 +1,15 @@
+''''
+Training Multiple Faces stored on a DataBase:
+	==> Each face should have a unique numeric integer ID as 1, 2, 3, etc                       
+	==> LBPH computed model will be saved on trainer/ directory. (if it does not exist, pls create one)
+	==> for using PIL, install pillow library with "pip install pillow"
+
+Based on original code by Anirban Kar: https://github.com/thecodacus/Face-Recognition    
+
+Developed by Marcelo Rovai - MJRoBot.org @ 21Feb18   
+
+'''
+
 import cv2
 import numpy as np
 from PIL import Image
@@ -21,7 +33,7 @@ def getImagesAndLabels(path):
         PIL_img = Image.open(imagePath).convert('L') # convert it to grayscale
         img_numpy = np.array(PIL_img,'uint8')
 
-        id = int((os.path.split(imagePath)[-1].split(".")[2]))
+        id = int(os.path.split(imagePath)[-1].split(".")[1])
         faces = detector.detectMultiScale(img_numpy)
 
         for (x,y,w,h) in faces:
