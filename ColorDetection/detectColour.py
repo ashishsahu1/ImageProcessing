@@ -45,7 +45,7 @@ cv2.createTrackbar('Val min','TrackBar',109,255,empty)
 cv2.createTrackbar('Val max','TrackBar',255,255,empty)
 
 
-img=cv2.imread('5.jpeg')
+img=cv2.imread('4.jpeg')
 
 while True:
     imgHSV=cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
