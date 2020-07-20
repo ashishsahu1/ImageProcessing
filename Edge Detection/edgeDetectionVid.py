@@ -9,9 +9,11 @@ while(True):
 	# by frame 
 	ret, frame = vid.read() 
 	edged=cv2.Canny(frame,100,200)
+	alt=cv2.bitwise_not(edged,mask=None)
 	# Display the resulting frame 
 	cv2.imshow('Frame',frame)
 	cv2.imshow('Edged', edged)
+	cv2.imshow('ALter Edged',alt)
 
 	if cv2.waitKey(1) & 0xFF == ord('c'):
 		cv2.imwrite("Capture." + '.' + ".jpg",edged)
