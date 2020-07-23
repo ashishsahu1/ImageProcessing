@@ -11,7 +11,7 @@ image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 
 # create a binary thresholded image
-_, binary = cv2.threshold(gray, 225, 255, cv2.THRESH_BINARY_INV)
+_, binary = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY_INV)
 # show it
 plt.imshow(binary, cmap="gray")
 plt.show()
