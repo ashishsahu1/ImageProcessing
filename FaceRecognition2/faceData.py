@@ -16,16 +16,16 @@ while True:
 
     ret, frame = cap.read()
 
-    if ret:
-        faces = detector.detectMultiScale(frame)
+    #if ret:
+    faces = detector.detectMultiScale(frame)
 
-        for face in faces:
-            x, y, w, h = face
+    for face in faces:
+        x, y, w, h = face
 
-            cut = frame[y:y+h, x:x+w]
+        cut = frame[y:y+h, x:x+w]
 
-            fix = cv2.resize(cut, (100, 100))
-            gray = cv2.cvtColor(fix, cv2.COLOR_BGR2GRAY)
+        fix = cv2.resize(cut, (100, 100))
+        gray = cv2.cvtColor(fix, cv2.COLOR_BGR2GRAY)
 
         cv2.imshow("My Screen", frame)
         cv2.imshow("My Face", gray)

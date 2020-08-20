@@ -31,6 +31,7 @@ while True:
             gray = cv2.cvtColor(fix, cv2.COLOR_BGR2GRAY)
 
             out = model.predict([gray.flatten()])
+            #print(out)
 
             cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
 
